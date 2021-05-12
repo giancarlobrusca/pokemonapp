@@ -1,0 +1,7 @@
+- [ ] Arreglar el CSS de la HomePage
+- [ ] Hacer el CSS de la **PokeCard**
+- [ ] Hacer el _fetch_ del Pokemon vía **params**
+- [ ] Feature de **favorites**
+  - [ ] Agregar favorites
+  - [ ] Eliminar favorites
+- [ ] Feature de **¡Azar!**
