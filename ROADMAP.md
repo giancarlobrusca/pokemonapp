@@ -4,4 +4,7 @@
 - [ ] Feature de **favorites**
   - [ ] Agregar favorites
   - [ ] Eliminar favorites
+- [ ] _Drawer_ de **favorites**
 - [ ] Feature de **¡Azar!**
+- [ ] Subir app a **Vercel**
+- [ ] Descargar los recursos para usarlos locales
