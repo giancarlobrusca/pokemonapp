@@ -3,23 +3,35 @@ import { useHistory } from "react-router";
 import styled from "styled-components";
 import { PokemonLogoURL } from "./constants";
 
-export const HomePage = ({ setPokemon }) => {
+export const HomePage = ({ favorites, setPokemon }) => {
+  const [input, setInput] = React.useState();
+
   const history = useHistory();
 
   function handleSearchClick() {
-    setPokemon("squirtle");
+    setPokemon(input.toLowerCase());
     history.replace("/card");
+  }
+
+  function handleInputChange(event) {
+    setInput(event.target.value);
   }
 
   return (
     <Home width="20px">
       <Wrapper>
         <PokemonLogo src={PokemonLogoURL} alt="Pokemon Logo" />
-        <input style={{ marginBottom: "20px" }} type="search" />
+        <SearchBar
+          placeholder="Buscá tu Pokémon"
+          value={input}
+          onChange={handleInputChange}
+          type="search"
+        />
         <ButtonsWrapper>
           <button onClick={handleSearchClick}>Buscar</button>
           <button>¡Azar!</button>
         </ButtonsWrapper>
+        {favorites.map((favorite) => `${favorite.name}`)}
       </Wrapper>
     </Home>
   );
@@ -33,17 +45,25 @@ const Home = styled.div`
   justify-content: center;
   align-items: center;
   background-image: url("https://i.pinimg.com/originals/26/b5/55/26b5551ba10f013a335e91b98f530d51.png");
+  background-size: cover;
 `;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 50%;
+`;
+
+const SearchBar = styled.input`
+  width: 100%;
+  margin-bottom: 20px;
 `;
 
 const PokemonLogo = styled.img`
   width: 350px;
+  margin-bottom: 20px;
 `;
 
 const ButtonsWrapper = styled.div`
